@@ -21,10 +21,10 @@ public class ConcreteMediator implements Mediator {
     }
 
     public void notifyColleague(Colleague colleague, String message) {
-        for (Colleague receiverColleague : colleagues) {
-            if (colleague != receiverColleague) {
-                receiverColleague.receive(message);
+        colleagues.forEach(itemColleague -> {
+            if (itemColleague != colleague){
+                itemColleague.receive(message);
             }
-        }
+        });
     }
 }
